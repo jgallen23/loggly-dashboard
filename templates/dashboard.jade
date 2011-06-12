@@ -1,0 +1,15 @@
+- stylesheets.push("/ui/stylesheets/dashboard.css")
+- scripts.push("/ui/scripts/external/date.js")
+- scripts.push("/ui/scripts/widgets/list.js")
+- scripts.push("/ui/scripts/widgets/bar.js")
+- scripts.push("https://www.google.com/jsapi")
+- scripts.push("/ui/scripts/dashboard.js")
+#chart_div
+div#widgets
+script
+  var widgets = !{JSON.stringify(widgets)}
+script#ListWidgetTemplate(type="text/template")
+  != partial("partials/widgets/list.jade")
+script#BarWidgetTemplate(type="text/template")
+  != partial("partials/widgets/bar.jade")
+

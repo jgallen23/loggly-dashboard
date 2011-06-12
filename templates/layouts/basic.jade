@@ -1,0 +1,21 @@
+- stylesheets.push("/ui/stylesheets/common.css")
+!!!5
+html
+  head
+    - if (locals.pageTitle)
+      title= locals.pageTitle
+    - else
+      title Site Title 
+
+    - stylesheets.forEach(function(s) {
+      link(rel="stylesheet", href=s)
+    - })
+    - if (!inProduction)
+      script(src="/ui/scripts/external/live.js")
+
+  body
+    != body
+    script(src="/ui/scripts/external/ender.js")
+    - scripts.forEach(function(s) {
+      script(src=s)
+    - })

@@ -1,0 +1,18 @@
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,figure,pre,a,abbr,button,address,cite,code,del,dfn,img,ins,kbd,q,samp,strike,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,header,nav,article,section,aside,footer{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline}
+:-moz-any-link:focus,input:focus,textarea:focus,a,a:active,a:focus{outline:none}
+header,nav,article,section,figure,aside,footer{display:block}
+a{cursor:pointer;}
+a img{border:none}
+button{cursor:pointer;background-color:transparent}
+p{margin:10px 0}
+h1,h2,h3,h4,h5,h6{font-weight:normal}
+table{border-collapse:collapse}
+th{text-align:left;font-weight:normal}
+ol{margin-left:25px}
+.FLC{clear:both}
+.FLC:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.Debug1{border:1px solid #f00;background-color:#f00}
+.Debug2{border:1px solid #008000;background-color:#008000}
+html{background:#fff;height:100%}
+body{color:#333;font-family:verdana,sans-serif;font-size:14px}
+ul{margin-left:20px}

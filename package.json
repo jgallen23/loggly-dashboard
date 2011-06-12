@@ -1,0 +1,13 @@
+{
+    "name": "loggly-dashboard",
+    "version": "1.0.0",
+    "dependencies": {
+        "express": "*",
+        "jade": "*",
+        "stylus": "*",
+        "nib": "*",
+        "winston": "*",
+        "loggly": "*"
+    }
+}
+
