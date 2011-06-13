@@ -3,8 +3,8 @@ var express = require('express'),
     stylus = require('stylus');
 
 var app = express.createServer();
-var port = 80;
 var config = require('./config');
+var port = 10491;
 var winston = require('winston');
 var loggly = require('loggly');
 
