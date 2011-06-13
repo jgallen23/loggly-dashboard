@@ -7,7 +7,11 @@ var port = 80;
 var config = require('./config');
 var winston = require('winston');
 var loggly = require('loggly');
-var log = loggly.createClient(config.loggly);
+
+for (var subdomain in config) {
+  config[subdomain].log = loggly.createClient({ subdomain: subdomain, auth: config[subdomain].auth });
+}
+
 
 var useCache = false;
 var cache = {};
@@ -62,22 +66,28 @@ app.configure('production', function() {
 });
 
 
-app.get('/', function(req, res) {
+app.get('/:subdomain', function(req, res) {
+  var subdomain = req.params.subdomain;
+  var site = config[subdomain];
   res.render('dashboard', {
-    widgets: config.widgets
+    subdomain: subdomain,
+    widgets: site.widgets
   });
 });
 
-app.get('/api/:name', function(req, res) {
+app.get('/:subdomain/api/:name', function(req, res) {
+  var subdomain = req.params.subdomain;
   var name = req.params.name;
-  var widget = config.widgets[name];
+  var site = config[subdomain];
+  console.log(site.log);
+  var widget = site.widgets[name];
   res.contentType('application/json');
   if (useCache && cache[name]) {
     res.send(cache[name]);
   } else {
     if (widget.type == 'facet') {
       console.log(widget.context);
-      log.facet(widget.facet, widget.query)
+      site.log.facet(widget.facet, widget.query)
         .context(widget.context)
         .run(function(err, results) {
           console.log(err);
@@ -86,7 +96,7 @@ app.get('/api/:name', function(req, res) {
           res.send(results);
         });
     } else if (widget.type == 'search') {
-      log.search(widget.query)
+      site.log.search(widget.query)
         .context(widget.context)
         .run(function(err, results) {
           if (widget.regex) {

@@ -2,7 +2,7 @@ var ListWidget = $.Fidel.extend({
   templateSelector: '#ListWidgetTemplate',
   init: function() {
     if (!this.autoRefreshInterval)
-      this.autoRefreshInterval = 5 * 1000; //5 mins
+      this.autoRefreshInterval = 5 * 60 * 1000; //5 mins
 
     if (this.settings.ui.autoRefresh) {
       this.startAutoRefresh();
@@ -23,9 +23,10 @@ var ListWidget = $.Fidel.extend({
     this._timeout = null;
   },
   refresh: function() {
+    console.log("refresh", this.key);
     var self = this;
     $.ajax({
-      url: '/api/'+this.key,
+      url: '/'+window.subdomain+'/api/'+this.key,
       type: 'json',
       method: 'get',
       success: function(data) {

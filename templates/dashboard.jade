@@ -7,7 +7,8 @@
 #chart_div
 div#widgets
 script
-  var widgets = !{JSON.stringify(widgets)}
+  var subdomain = "#{ subdomain }";
+  var widgets = !{JSON.stringify(widgets)};
 script#ListWidgetTemplate(type="text/template")
   != partial("partials/widgets/list.jade")
 script#BarWidgetTemplate(type="text/template")
