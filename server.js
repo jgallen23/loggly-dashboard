@@ -91,6 +91,14 @@ app.get('/:subdomain/api/:name', function(req, res) {
       site.log.facet(widget.facet, widget.query)
         .context(widget.context)
         .run(function(err, results) {
+          var data = [];
+          for (var date in results.data) {
+            data.push({
+              timestamp: new Date(date).getTime(),
+              count: results.data[date]
+            });
+          }
+          results.data = data;
           cache[name] = results;
           res.send(results);
         });
@@ -101,6 +109,7 @@ app.get('/:subdomain/api/:name', function(req, res) {
           if (widget.regex) {
             for (var i = 0, c = results.data.length; i < c; i++) {
               var result = results.data[i];
+              result.timestamp = new Date(result.timestamp).getTime();
               result.output = result.text.match(widget.regex)[1];
             }
           }
