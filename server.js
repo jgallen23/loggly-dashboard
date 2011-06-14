@@ -61,10 +61,6 @@ app.configure('development', function() {
 });
 app.configure('production', function() {
   app.use(express.errorHandler());
-  winston.add(winston.transports.Loggly, { 
-    subdomain: '',
-    inputToken: '' 
-  });
 });
 
 app.get('/', function(req, res) {
