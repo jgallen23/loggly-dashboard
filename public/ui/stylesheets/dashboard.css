@@ -1,5 +1,6 @@
-.Widget{margin:20px;padding:10px;float:left;width:400px;border-radius:5px;box-shadow:0 0 5px #ccc;}
+.Widget{margin:10px;padding:10px;float:left;width:400px;height:330px;overflow:hidden;border-radius:5px;box-shadow:0 0 5px #ccc;}
 .Widget .Title{color:#900000;border-bottom:1px solid #ccc;padding-bottom:5px;margin-bottom:10px}
 .Widget.list ul{margin:5px}
-.Widget.list li{list-style:none;margin:5px 0;padding:2px 0;border-bottom:1px solid #ccc}
+.Widget.list li{overflow:hidden;list-style:none;margin:5px 0;padding:4px 0;border-bottom:1px solid #ccc}
+.Widget.list .name{float:left;display:block;width:70%;overflow:hidden;height:17px}
 .Widget.list .time{float:right;color:#ccc;font-size:11px;margin-top:4px}
