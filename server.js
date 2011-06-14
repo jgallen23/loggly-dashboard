@@ -65,6 +65,11 @@ app.configure('production', function() {
   });
 });
 
+app.get('/', function(req, res) {
+  res.render('index', {
+    config: config
+  });
+});
 
 app.get('/:subdomain', function(req, res) {
   var subdomain = req.params.subdomain;

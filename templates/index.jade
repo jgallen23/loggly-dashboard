@@ -1,0 +1,7 @@
+- pageTitle = "Loggly Dashboard"
+h1 Subdomains:
+ul
+  - for (var key in config) {
+    li
+      a(href="/#{ key }/")= key
+  - }
