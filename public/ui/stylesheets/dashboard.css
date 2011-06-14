@@ -1,4 +1,4 @@
-.Widget{margin:20px;padding:10px;float:left;width:400px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-webkit-box-shadow:0 0 5px #ccc;-moz-box-shadow:0 0 5px #ccc;box-shadow:0 0 5px #ccc;}
+.Widget{margin:20px;padding:10px;float:left;width:400px;border-radius:5px;box-shadow:0 0 5px #ccc;}
 .Widget .Title{color:#900000;border-bottom:1px solid #ccc;padding-bottom:5px;margin-bottom:10px}
 .Widget.list ul{margin:5px}
 .Widget.list li{list-style:none;margin:5px 0;padding:2px 0;border-bottom:1px solid #ccc}
