@@ -3,7 +3,7 @@ var express = require('express'),
     stylus = require('stylus');
 
 var app = express.createServer();
-var port = 10491;
+var port = 80;
 var winston = require('winston');
 var loggly = require('loggly');
 
@@ -82,19 +82,15 @@ app.get('/:subdomain/api/:name', function(req, res) {
   var subdomain = req.params.subdomain;
   var name = req.params.name;
   var site = config[subdomain];
-  console.log(site.log);
   var widget = site.widgets[name];
   res.contentType('application/json');
   if (useCache && cache[name]) {
     res.send(cache[name]);
   } else {
     if (widget.type == 'facet') {
-      console.log(widget.context);
       site.log.facet(widget.facet, widget.query)
         .context(widget.context)
         .run(function(err, results) {
-          console.log(err);
-          console.log(results);
           cache[name] = results;
           res.send(results);
         });
