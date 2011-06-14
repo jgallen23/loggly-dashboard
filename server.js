@@ -3,13 +3,15 @@ var express = require('express'),
     stylus = require('stylus');
 
 var app = express.createServer();
-var config = require('./config');
 var port = 10491;
 var winston = require('winston');
 var loggly = require('loggly');
 
-for (var subdomain in config) {
-  config[subdomain].log = loggly.createClient({ subdomain: subdomain, auth: config[subdomain].auth });
+if (path.existsSync("config.js")) {
+  var config = require('./config');
+  for (var subdomain in config) {
+    config[subdomain].log = loggly.createClient({ subdomain: subdomain, auth: config[subdomain].auth });
+  }
 }
 
 
