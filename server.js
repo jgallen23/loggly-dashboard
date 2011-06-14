@@ -7,13 +7,20 @@ var port = 80;
 var winston = require('winston');
 var loggly = require('loggly');
 
+var configPath;
 if (path.existsSync("config.js")) {
-  var config = require('./config');
+  configPath = "./config.js";
+} else {
+  configPath = process.env.LOGGLYDASHCONFIG;
+}
+
+var config;
+var initConfig = function(configPath) {
+  config = require(configPath);
   for (var subdomain in config) {
     config[subdomain].log = loggly.createClient({ subdomain: subdomain, auth: config[subdomain].auth });
   }
-}
-
+}(configPath);
 
 var useCache = false;
 var cache = {};
