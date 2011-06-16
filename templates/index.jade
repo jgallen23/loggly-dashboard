@@ -1,6 +1,8 @@
 - pageTitle = "Loggly Dashboard"
-h1 Subdomains:
-ul
+- stylesheets.push("/ui/stylesheets/dashboards.css")
+.Header
+  h1 Loggly Dashboard
+ul.Subdomains
   - for (var key in config) {
     li
       a(href="/#{ key }/")= key
