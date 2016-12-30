@@ -5,7 +5,7 @@
         "express": "*",
         "jade": "*",
         "stylus": "*",
-        "nib": "*",
+        "nib": ">=1.1.2",
         "winston": "*",
         "loggly": "*"
     }
