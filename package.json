@@ -6,7 +6,7 @@
         "jade": "*",
         "stylus": "*",
         "nib": "*",
-        "winston": "*",
+        "winston": ">=2.3.1",
         "loggly": "*"
     }
 }
